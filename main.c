@@ -262,5 +262,34 @@ int ExcluirUsuario() {
 
     return 0;
 }
+int BuscarPorEmail() {
+    char email[100];
+    int encontrado = 0;
+
+    printf("Digite o email do usuario que deseja buscar: ");
+    scanf(" %[^\n]", email);
+
+    for (int i = 0; i < numUsuarios; i++) {
+        if (strcmp(usuarios[i].email, email) == 0) {
+            encontrado = 1;
+            printf("Usuario encontrado!\n");
+            printf("ID: %d\n", usuarios[i].id);
+            printf("Nome: %s\n", usuarios[i].nome);
+            printf("Email: %s\n", usuarios[i].email);
+            printf("Sexo: %s\n", usuarios[i].sexo);
+            printf("Endereco: %s\n", usuarios[i].endereco);
+            printf("Altura: %.2lf\n", usuarios[i].altura);
+            printf("Vacina: %s\n", usuarios[i].vacina == 1 ? "Sim" : "Nao");
+            break;
+        }
+    }
+
+    if (encontrado == 0) {
+        printf("Usuario nao encontrado\n");
+    }
+
+    return 0;
+}
+
 
 
