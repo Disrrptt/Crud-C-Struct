@@ -166,4 +166,75 @@ int AdicionarUsuario() {
 
     return 0;
 }
+int EditarUsuario() {
+    int id, opcao;
+    int encontrado = 0;
+    char novoNome[100], novoEmail[100], novoSexo[10], novoEndereco[100];
+    double novaAltura;
+    int novaVacina;
+
+    printf("Digite o ID do usuario que deseja editar: ");
+    scanf("%d", &id);
+
+    for (int i = 0; i < numUsuarios; i++) {
+        if (usuarios[i].id == id) {
+            encontrado = 1;
+            printf("Usuario encontrado!\n");
+            printf("O que deseja editar?\n");
+            printf("1 - Nome\n");
+            printf("2 - Email\n");
+            printf("3 - Sexo\n");
+            printf("4 - Endereco\n");
+            printf("5 - Altura\n");
+            printf("6 - Vacina\n");
+            printf("Digite a opcao escolhida: ");
+            scanf("%d", &opcao);
+
+            switch (opcao) {
+                case 1:
+                    printf("Digite o novo nome: ");
+                    scanf(" %[^\n]", novoNome);
+                    strcpy(usuarios[i].nome, novoNome);
+                    break;
+                case 2:
+                    printf("Digite o novo email: ");
+                    scanf(" %[^\n]", novoEmail);
+                    strcpy(usuarios[i].email, novoEmail);
+                    break;
+                case 3:
+                    printf("Digite o novo sexo: ");
+                    scanf(" %[^\n]", novoSexo);
+                    strcpy(usuarios[i].sexo, novoSexo);
+                    break;
+                case 4:
+                    printf("Digite o novo endereco: ");
+                    scanf(" %[^\n]", novoEndereco);
+                    strcpy(usuarios[i].endereco, novoEndereco);
+                    break;
+                case 5:
+                    printf("Digite a nova altura: ");
+                    scanf("%lf", &novaAltura);
+                    usuarios[i].altura = novaAltura;
+                    break;
+                case 6:
+                    printf("Digite a nova vacina (1-Sim / 0-Nao): ");
+                    scanf("%d", &novaVacina);
+                    usuarios[i].vacina = novaVacina;
+                    break;
+                default:
+                    printf("Opcao invalida\n");
+                    break;
+            }
+
+            printf("Usuario atualizado com sucesso!\n");
+            break;
+        }
+    }
+
+    if (encontrado == 0) {
+        printf("Usuario nao encontrado\n");
+    }
+
+    return 0;
+}
 
