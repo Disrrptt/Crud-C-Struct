@@ -290,6 +290,25 @@ int BuscarPorEmail() {
 
     return 0;
 }
+int ImprimirUsuarios() {
+    if (numUsuarios == 0) {
+        printf("Nenhum usuario cadastrado\n");
+    } else {
+        printf("--------Usuarios Cadastrados--------\n");
+        for (int i = 0; i < numUsuarios; i++) {
+            printf("ID: %d\n", usuarios[i].id);
+            printf("Nome: %s\n", usuarios[i].nome);
+            printf("Email: %s\n", usuarios[i].email);
+            printf("Sexo: %s\n", usuarios[i].sexo);
+            printf("Endereco: %s\n", usuarios[i].endereco);
+            printf("Altura: %.2lf\n", usuarios[i].altura);
+            printf("Vacina: %s\n\n", usuarios[i].vacina == 1 ? "Sim" : "Nao");
+        }
+    }
+
+    return 0;
+}
+
 
 
 
