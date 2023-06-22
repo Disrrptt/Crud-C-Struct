@@ -308,6 +308,47 @@ int ImprimirUsuarios() {
 
     return 0;
 }
+int BackUp() {
+    if (numUsuarios == 0) {
+        printf("Nenhum usuario cadastrado\n");
+    } else {
+        printf("Fazendo backup dos usuarios...\n");
+        for (int i = 0; i < numUsuarios; i++) {
+            backupUsuarios[i] = usuarios[i];
+        }
+        printf("Backup realizado com sucesso!\n");
+    }
+
+    return 0;
+}
+
+int RestaurarDados() {
+    if (numUsuarios > 0) {
+        printf("Ja existem usuarios cadastrados\n");
+        printf("Deseja substituir os usuarios existentes pelos do backup? (1-Sim / 0-Nao): ");
+        int opcao;
+        scanf("%d", &opcao);
+
+        if (opcao == 0) {
+            printf("Operacao cancelada\n");
+            return 0;
+        }
+    }
+
+    printf("Restaurando os dados...\n");
+    numUsuarios = 0;
+
+    for (int i = 0; i < MAX_USUARIOS; i++) {
+        if (backupUsuarios[i].id != 0) {
+            usuarios[numUsuarios] = backupUsuarios[i];
+            numUsuarios++;
+        }
+    }
+
+    printf("Dados restaurados com sucesso!\n");
+
+    return 0;
+}
 
 
 
