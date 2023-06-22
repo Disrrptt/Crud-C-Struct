@@ -237,4 +237,30 @@ int EditarUsuario() {
 
     return 0;
 }
+int ExcluirUsuario() {
+    int id;
+    int encontrado = 0;
+
+    printf("Digite o ID do usuario que deseja excluir: ");
+    scanf("%d", &id);
+
+    for (int i = 0; i < numUsuarios; i++) {
+        if (usuarios[i].id == id) {
+            encontrado = 1;
+            for (int j = i; j < numUsuarios - 1; j++) {
+                usuarios[j] = usuarios[j + 1];
+            }
+            numUsuarios--;
+            printf("Usuario excluido com sucesso!\n");
+            break;
+        }
+    }
+
+    if (encontrado == 0) {
+        printf("Usuario nao encontrado\n");
+    }
+
+    return 0;
+}
+
 
