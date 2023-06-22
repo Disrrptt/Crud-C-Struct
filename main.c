@@ -20,7 +20,7 @@ int numUsuarios = 0;
 Usuario usuarios[MAX_USUARIOS];
 Usuario backupUsuarios[MAX_USUARIOS];
 
-// Function prototypes
+// Funcoes (:
 void AbrirMenu();
 int AdicionarUsuario();
 int EditarUsuario();
